@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Modificar Editoriales</title>
+           <!-- BOOTSTRAP -->
+        <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>      
+</head>
+<body >
+  <nav th:replace="fragments/navbar :: navbar"></nav>
+    <div class="container m-5" >
+
+        <div th:if="${exito}!=null" class="card text-white bg-success mb-3" >
+            <div class="card-body">
+                <h5 class="card-title">Exito</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+        <div th:if="${error}!=null" class="card text-white bg-danger mb-3" >
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row justify-content-center" >
+                <h3> Actualizacion de Editoriales </h3>
+            </div> 
+            </br>
+            <div class="row"> </div>
+            <div class="row align-items-start">
+                <div class="col-3">
+
+                </div>
+                <div class="col-6 border border-info border-2 ">
+                    <form th:action="@{/editorial/modificare/__${editorial.id}__}" method="POST">
+                        <input hidden th:value="${id}" name="id">
+                        <div  class="px-5">
+                            <label for="Nombre" class="form-label">Ingrese el nuevo nombre de la Editorial</label>
+                            <input th:value="${editorial.nombre}" type="text" class="form-control mb-3" name="nombre">
+                        </div>
+                        <div class="py-5 text-center container">
+                            <button type="submit" class="btn btn-success">Guardar</button>
+                            <input class="btn btn-warning my-2" type="button" value="Volver" onClick="history.go(-1);">
+                        </div>
+                    </form>
+                </div>
+                <div class="col-3">
+
+                </div>
+            </div>
+
+        </div>
+
+        <div align=" center">
+
+        </div>
+
+      <footer th:replace="fragments/footer :: footer"></footer>
+        <!-- JS -->
+      <script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Listado de Libros</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous" />
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>   >
+    </head>
+    <body>
+        <nav th:replace="fragments/navbar :: navbar"></nav>
+        <div>
+            <div class="row align-items-start">
+                <div class="col">
+
+                </div>
+                <div class="col">
+                    <div class="row justify-content-center" >
+                        <h3 align="center"> Listado de LIBROS </h3>
+                    </div>
+                    <table class="table table-secondary">
+                        <thead>
+                            <tr class="table table-warning">
+                                <th scope="col">id</th>
+                                <th scope="col">ISBN</th>
+                                <th scope="col">Titulo</th>
+                                <th scope="col">Anio</th>
+                                <th scope="col">Ejemplares</th>
+                                <th scope="col">E.Prestados</th>
+                                <th scope="col">E.Restantes</th>
+                                <th scope="col">Nombre Autor</th>
+                                <th scope="col">Nombre Editorial</th>
+                                <th scope="col">Editar Registro</th>
+                                <th scope="col">Estatus</th>
+                                <th scope="col">Alta/Baja</th>
+                            </tr>
+                        </thead>
+                        <tbody th:each="libro : ${libros}">
+                            <tr align="center">
+                                <td th:text="${libro.id}"></td>
+                                <td th:text="${libro.isbn}"></td>
+                                <td th:text="${libro.titulo}"></td>
+                                <td th:text="${libro.anio}"></td>
+                                <td th:text="${libro.ejemplares}"></td>
+                                <td th:text="${libro.ePrestados}"></td>
+                                <td th:text="${libro.eRestantes}"></td>
+
+                                <td th:text="${libro.autor.nombre}"></td>
+                                <td th:text="${libro.editorial.nombre}"></td>
+                                <td><a th:href="@{/libro/modificarl/__${libro.id}__}">Modificar</a></td>
+                                <td>
+                                    <i th:if="${libro.alta}" class="fa fa-circle text-success"></i>
+                                    <i th:unless="${libro.alta}" class="fa fa-circle" style="color:red;"></i>
+                                </td>
+                                <td>
+                                    <a th:href="@{/libro/alta/__${libro.id}__}"><i class="fa fa-arrow-up"></i></a> 
+                                    <a th:href="@{/libro/baja/__${libro.id}__}"><i class="fa fa-ban"></i></a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                        </tbody>
+                    </table>
+                    <div align=" center">
+                        <a th:href="@{/}" class="btn btn-primary my-2">HOME</a>
+                    </div>
+                </div>
+                <div class="col">
+
+                </div>
+
+
+                <footer th:replace="fragments/footer :: footer"></footer>
+                <!-- JS -->
+                <script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+
+            </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

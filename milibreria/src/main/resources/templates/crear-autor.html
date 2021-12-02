@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Registro de Autores</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <body >
+        <nav th:replace="fragments/navbar :: navbar"></nav>
+        <div class="container m-5" >
+
+            <div th:if="${exito}!=null" class="card text-white bg-success mb-3" >
+                <div class="card-body">
+                    <h5 class="card-title">Exito</h5>
+                    <p class="card-text" th:text="${exito}"></p>
+                </div>
+            </div>
+            <div th:if="${error}!=null" class="card text-white bg-danger mb-3" >
+                <div class="card-body">
+                    <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+            <div class="container p-4">
+                <div class="row">
+                    <div class="col-md-4 mx-auto px-0">
+                        <div class="card text-center shadow">
+                            <div class="card-header">
+                                <h3>Registro de Autores</h3>
+                            </div>
+                            <div class="card-body">
+                                <form th:action="@{/autor/registrar-autor}" method="POST"
+                                      autocomplete="off" novalidate>
+
+                                    <div class="form-group mb-3">
+                                        <input type="text" name="nombre" placeholder="Nombre del Autor" class="form-control"
+                                               required/>
+                                    </div>
+
+                                        <button class="btn btn-success" type="submit">Ingresar</button>
+                                        <a th:href="@{/}" class="btn btn-primary my-2">HOME</a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <footer th:replace="fragments/footer :: footer"></footer>
+                <!-- JS -->
+                <script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+
+                </body>
+                </html>

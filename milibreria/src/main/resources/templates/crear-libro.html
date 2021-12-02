@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="ISO-8859-1">
+        <title>Registro de Libros</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>              
+    </head>
+    <body >
+        <nav th:replace="fragments/navbar :: navbar"></nav>
+        <div class="container m-5">
+            <div th:if="${exito}!=null" class="card text-white bg-success mb-3" >
+                <div class="card-body">
+                    <h5 class="card-title">Exito !!</h5>
+                    <p class="card-text" th:text="${exito}"></p>
+                </div>
+            </div>
+            <div th:if="${error}!=null" class="card text-white bg-danger mb-3" >
+                <div class="card-body">
+                    <h5 class="card-title">Error</h5>
+                    <p class="card-text" th:text="${error}"></p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 mx-auto px-0">
+                        <div class="card text-center shadow">
+                            <div class="card-header">
+                                <h3 align ="center">Registro de Libros</h3>
+                            </div>
+
+                            <div class="card-body">
+
+                                <form th:action="@{/libro/registrar-libro}" method="POST">
+                                    <div class="form-group mb-3 row">
+                                        <div class="col" align="left">
+                                            <label>ISBN</label> 
+                                            <input type="number" class="form-control" name="isbn" placeholder="Isbn">
+                                        </div>
+                                        <div class="col" align="left">
+                                            <label>Titulo del Libro</label>
+                                            <input type="text" class="form-control" name="titulo" placeholder="Nombre del libro">
+                                        </div>
+                                    </div>
+                                    <div class="form-group mb-3 row">
+                                        <div class="col" align="left">
+                                            <label>Anio</label> 
+                                            <input type="number" class="form-control" name="anio" placeholder="Anio">
+                                        </div>
+                                        <div class="col" align="left">
+                                            <label>Numero de Ejemplares</label> 
+                                            <input type="number" class="form-control" name="ejemplares" placeholder="Numero de Ejemplares">
+                                        </div>
+                                    </div>
+                                    <!-- Autor -->
+                                    <div class="mb-3 row">
+                                        <div class="col" align="left">
+                                            <label for="Autor" class="form-label">Nombre Autor</label>
+                                            <select name="autor" class="form-control">
+                                                <option value=""> -----------Seleccione un autor ------------- </option>
+                                                <option th:each="autor : ${autores}"
+                                                        th:value="${autor.id}" 
+                                                        th:text="${autor.nombre}"/>
+                                            </select>
+                                            <div align="left">
+                                                <!-- Editorial -->
+                                                <label for="Editorial" class="form-label">Nombre Editorial</label>
+                                                <select name="editorial" class="form-control">
+                                                    <option value=""> -----------Seleccione una editorial ------------- </option>
+                                                    <option th:each="editorial : ${editoriales}"
+                                                            th:value="${editorial.id}" 
+                                                            th:text="${editorial.nombre}"/>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                        <input class="btn btn-primary my-2" type="button" value="Volver" onClick="history.go(-1);">
+                            </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer th:replace="fragments/footer :: footer"></footer>
+    <!-- JS -->
+    <script th:src="@{/assets/bootstrap.bundle.min.js}"></script>           
+</body>
+</html>

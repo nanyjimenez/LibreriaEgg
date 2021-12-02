@@ -1,0 +1,112 @@
+/*!
+ * Start Bootstrap - One Page Wonder v5.0.7 (https://startbootstrap.com/template-overviews/one-page-wonder)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-one-page-wonder/blob/master/LICENSE)
+ */
+
+/*body {
+    font-family: 'Lato';
+    background-image: url(/imagen/foto2.jpg);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}*/
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Catamaran';
+    font-weight: 800 !important;
+    color: white;
+}
+
+.bg-black {
+    background-color: #000 !important;
+}
+
+.rounded-pill {
+    border-radius: 5rem;
+}
+
+header.masthead {
+    position: relative;
+    overflow: hidden;
+    padding-top: calc(7rem + 72px);
+    padding-bottom: 7rem;
+    background: linear-gradient(0deg, #ff6a00 0%, #ee0979 100%);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+@media (min-width: 992px) {
+    header.masthead {
+        padding-top: calc(10rem + 55px);
+        padding-bottom: 10rem;
+    }
+    header.masthead .masthead-content .masthead-heading {
+        font-size: 6rem;
+    }
+    header.masthead .masthead-content .masthead-subheading {
+        font-size: 4rem;
+    }
+}
+
+.form-control {
+    background-color: #FFFFFF;
+    border: 1px solid #0291DD;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: black; 
+    font-size: 15px;
+
+}
+table{
+    background-color: lightgrey;
+    border: grey;
+    color: black;
+}
+
+modal {
+    background: rgba(0, 0, 0, 0.9);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: all .5s;
+}
+
+
+.header{
+    background: #333;
+    color:white;
+    padding : 2rem 0;
+    position: fixed;
+    left: 0;
+    top:0;
+    width:100%
+}
+/*.container{
+    width:100%;
+    max-width: 1250px;
+    margin:10px;
+}*/
+.fondo{
+    background-color: gray;
+}
+.header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}

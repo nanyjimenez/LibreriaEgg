@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+        <title>Inicio - Egg</title>
+        <!-- BOOTSTRAP -->
+        <link rel="stylesheet" th:href="@{/assets/bootstrap.min.css}"/>
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/css/style.css}"/>
+    </head>
+    <body>
+        <img class="img-fluid rounded-circle img1" src="/img/foto2.jpg" alt="" width="50"/>
+
+        <nav th:replace="fragments/navbar :: navbar"></nav>
+
+        <footer th:replace="fragments/footer :: footer"></footer>
+        <!-- JS -->
+        <script th:src="@{/assets/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>
